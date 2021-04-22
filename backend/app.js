@@ -21,7 +21,7 @@ if (!isProduction) {
 
 //helmet helps set variety of headers to better secure app
 app.use(
-  helment({
+  helmet({
     contentSecurityPolicy: false,
   })
 );
@@ -38,4 +38,5 @@ app.use(
 );
 
 app.use(routes);
+
 module.exports = app;

@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 // backend/bin/www
-
-const {port} = require('../config')
+const { port } = require('../config');
 
 const app = require('../app');
 const db = require('../db/models');
