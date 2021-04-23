@@ -23,9 +23,9 @@ router.use("/users", usersRouter);
 //     return res.json({ user });
 //   })
 // );
-// router.post("/test", function (req, res) {
-//   res.json({ requestBody: req.body });
-// });
+router.post("/test", function (req, res) {
+  res.json({ requestBody: req.body });
+});
 // router.get("/restore-user", restoreUser, (req, res) => {
 //   return res.json(req.user);
 // });
