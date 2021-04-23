@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
-// import { login } from "../../store/session";
 import * as sessionActions from "../../store/session";
-import "./LoginForm.css";
+import "./SignupForm.css";
 
-function LoginFormPage() {
+export default function SignupFormPage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-
-  const [credential, setCredential] = useState("");
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) {
@@ -24,14 +24,19 @@ function LoginFormPage() {
     // 1. resetting the error array
     // 2. triggers re-render after succesful submission which allows the user to be redirected
     //      from the if statement above
-    setErrors([]);
-    return dispatch(sessionActions.login({ credential, password })).catch(
-      async (res) => {
+    if (confirmPassword === password) {
+      setErrors([]);
+      return dispatch(
+        sessionActions.signup({ username, email, password })
+      ).catch(async (res) => {
         const data = await res.json();
 
         if (data && data.errors) setErrors(data.errors);
-      }
-    );
+      });
+    }
+    return setErrors([
+      "Confirm Password field must be the same as the Password field",
+    ]);
   };
 
   return (
@@ -42,11 +47,20 @@ function LoginFormPage() {
         ))}
       </ul>
       <label>
-        Username or Email
+        Username
         <input
           type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        Email
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
       </label>
@@ -59,8 +73,16 @@ function LoginFormPage() {
           required
         />
       </label>
-      <button type="submit">Log In</button>
+      <label>
+        Confirm Password
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+          required
+        />
+      </label>
+      <button type="submit">Sign Up</button>
     </form>
   );
 }
-export default LoginFormPage;
