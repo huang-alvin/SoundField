@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(256),
         allowNull: false,
         len: [3, 256],
         // isEmail: true,
@@ -29,6 +29,29 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           len: [60, 60],
         },
+      },
+      firstName: {
+        type: DataTypes.STRING(50),
+      },
+      lastName: {
+        type: DataTypes.STRING(50),
+      },
+      DOB: {
+        type: DataTypes.DATEONLY,
+        allowNull: false,
+        validate: {
+          isAfter: "1921-01-01",
+        },
+      },
+      avatar: {
+        type: DataTypes.TEXT,
+      },
+      username: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+      },
+      description: {
+        type: DataTypes.TEXT,
       },
     },
     {
@@ -48,7 +71,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    // associations can be defined here
+    User.hasMany(models.Bookmark, { foreignKey: "userId" });
+    User.hasMany(models.Ticket, { foreignKey: "userId" });
+    User.hasMany(models.Event, { foreignKey: "userId" });
   };
 
   User.prototype.toSafeObject = function () {
