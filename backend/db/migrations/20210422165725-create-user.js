@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       username: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(50),
         allowNull: false,
         unique: true,
       },
@@ -21,6 +21,22 @@ module.exports = {
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
         allowNull: false,
+      },
+      firstName: {
+        type: Sequelize.STRING(50),
+      },
+      lastName: {
+        type: Sequelize.STRING(50),
+      },
+      // DOB: {
+      //   type: Sequelize.DATEONLY,
+      //   allowNull: false,
+      // },
+      avatar: {
+        type: Sequelize.TEXT,
+      },
+      description: {
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,
