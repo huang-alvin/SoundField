@@ -5,23 +5,24 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let eventArr = [];
 
-    let year = 2021;
-    let month = Math.floor(Math.random() * 12);
-    let day = Math.floor(Math.random() * 26);
-    let startHour = Math.floor(Math.random() * 24);
-    let duration = Math.floor(Math.random() * 3);
-    let priceList = [15, 20, 25, 50];
-    let ageList = [18, 21];
-    let capacityList = [100, 500, 1000, 5000, 10000];
+    for (let i = 0; i <= 26; i++) {
+      let year = 2021;
+      let month = Math.floor(Math.random() * 12);
+      let day = Math.floor(Math.random() * 26);
+      let startHour = Math.floor(Math.random() * 24);
+      let duration = Math.floor(Math.random() * 3);
+      let endHour = startHour + duration;
+      let priceList = [15, 20, 25, 50];
+      let ageList = [18, 21];
+      let capacityList = [100, 500, 1000, 5000, 10000];
+      let id = Math.ceil(Math.random() * 25);
 
-    for (let i = 0; i <= 15; i++) {
-      let id = Math.floor(Math.random() * 25);
       let event = {
         userId: id,
         title: faker.lorem.words(),
         description: faker.lorem.paragraph(),
         start_date: new Date(year, month, day, startHour),
-        end_date: new Date(year, month, day, startHour + duration),
+        end_date: new Date(year, month, day, endHour),
         location: `${faker.address.streetAddress()} ${faker.address.cityName()}, ${faker.address.stateAbbr()}`,
         price: priceList[Math.floor(Math.random() * 4)],
         capacity: capacityList[Math.floor(Math.random() * 5)],

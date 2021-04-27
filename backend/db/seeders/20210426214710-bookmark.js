@@ -2,11 +2,16 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    let bookmarkArr = [];
+    let bookmarkArr = [
+      {
+        userId: 1,
+        eventId: 2,
+      },
+    ];
     for (let i = 0; i <= 25; i++) {
       let bookmark = {
-        userId: Math.floor(Math.random() * 25),
-        eventId: Math.floor(Math.random() * 16),
+        userId: Math.ceil(Math.random() * 25),
+        eventId: Math.ceil(Math.random() * 25),
       };
       bookmarkArr.push(bookmark);
     }

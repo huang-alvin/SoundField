@@ -5,10 +5,12 @@ const { User } = require("../../db/models");
 const { requireAuth } = require("../../utils/auth");
 const sessionRouter = require("./session");
 const usersRouter = require("./users");
+const bookmarksRouter = require("./bookmarks");
 const router = require("express").Router();
 
 router.use("/session", sessionRouter);
 router.use("/users", usersRouter);
+router.use("/bookmarks", bookmarksRouter);
 
 //----------------  TESTING AUTH MIDDLEWARE -----------------
 // router.get(

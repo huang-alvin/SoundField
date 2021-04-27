@@ -7,23 +7,31 @@ export default function Navigation({ isLoaded }) {
   const sessionUser = useSelector((state) => state.session.user);
   let sessionLinks;
   if (sessionUser) {
-    sessionLinks = <ProfileButton user={sessionUser} />;
+    sessionLinks = (
+      <span>
+        <span>Welcome {sessionUser.username}</span>
+        <ProfileButton user={sessionUser} />
+      </span>
+    );
   } else {
     sessionLinks = (
-      <>
+      <div className="dropdown">
         <NavLink to="/login">Log In</NavLink>
         <NavLink to="/signup">Sign Up</NavLink>
-      </>
+      </div>
     );
   }
   return (
-    <ul>
-      <li>
-        <NavLink exact to="/">
+    <div className="navbar-container">
+      <span className="nav-header__group">
+        <NavLink to="/">SoundField</NavLink>
+      </span>
+      <span className="nav-header__group">
+        <NavLink exact to="/home">
           Home
         </NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
+      </span>
+      <span className="nav-header__group">{isLoaded && sessionLinks}</span>
+    </div>
   );
 }

@@ -11,7 +11,16 @@ router.get(
       where: { userId },
       order: [["id", "ASC"]],
     });
-    res.json({ userBookmarks });
+    return res.json({ userBookmarks });
+  })
+);
+
+router.post(
+  "/",
+  asyncHandler(async (req, res) => {
+    const { userId, eventId } = req.body;
+    const bookmark = await Bookmark.create({ userId, eventId });
+    return res.json({ success: "success" });
   })
 );
 
@@ -21,7 +30,7 @@ router.delete(
     const { id } = req.params;
     const bookmark = await Bookmark.findByPk(id);
     await bookmark.destroy();
-    res.json({ success: "success" });
+    return res.json({ success: "success" });
   })
 );
 module.exports = router;

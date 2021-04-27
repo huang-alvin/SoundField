@@ -9,19 +9,19 @@ module.exports = {
         email: "demo@user.io",
         username: "Demo-lition",
         hashedPassword: bcrypt.hashSync("password"),
-        DOB: new Date(1995, 11, 13),
+        // DOB: new Date(1995, 11, 13),
       },
       {
         email: faker.internet.email(),
         username: "FakeUser1",
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
-        DOB: new Date(1980, 10, 23),
+        // DOB: new Date(1980, 10, 23),
       },
       {
         email: faker.internet.email(),
         username: "FakeUser2",
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
-        DOB: new Date(1977, 10, 18),
+        // DOB: new Date(1977, 10, 18),
       },
     ];
     // generate regular user
@@ -29,7 +29,7 @@ module.exports = {
       const years = 30;
       let user = {
         email: faker.internet.email(),
-        DOB: faker.date.past(years, new Date()),
+        // DOB: faker.date.past(years, new Date()),
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
         username: faker.internet.userName(),
         firstName: faker.name.firstName(),
@@ -44,7 +44,7 @@ module.exports = {
       let host = {
         email: faker.internet.email(),
         username: faker.internet.userName(),
-        DOB: faker.date.past(years, new Date()),
+        // DOB: faker.date.past(years, new Date()),
         hashedPassword: bcrypt.hashSync(faker.internet.password()),
         avatar: faker.image.nightlife(),
         description: faker.lorem.paragraph(),
@@ -56,12 +56,6 @@ module.exports = {
 
   down: (queryInterface, Sequelize) => {
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(
-      "Users",
-      {
-        username: { [Op.in]: ["Demo-lition", "FakeUser1", "FakeUser2"] },
-      },
-      {}
-    );
+    return queryInterface.bulkDelete("Users", null, {});
   },
 };

@@ -28,10 +28,10 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING(50),
       },
-      DOB: {
-        type: Sequelize.DATEONLY,
-        allowNull: false,
-      },
+      // DOB: {
+      //   type: Sequelize.DATEONLY,
+      //   allowNull: false,
+      // },
       avatar: {
         type: Sequelize.TEXT,
       },

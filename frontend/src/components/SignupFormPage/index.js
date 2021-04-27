@@ -82,6 +82,12 @@ export default function SignupFormPage() {
           required
         />
       </label>
+      {/* <label>
+        Date of Birth
+        <input type="number" placeholder="ex: 1982"></input>
+        <input type="number"></input>
+        <input type="number"></input>
+      </label> */}
       <button type="submit">Sign Up</button>
     </form>
   );

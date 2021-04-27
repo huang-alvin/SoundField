@@ -36,13 +36,13 @@ module.exports = (sequelize, DataTypes) => {
       lastName: {
         type: DataTypes.STRING(50),
       },
-      DOB: {
-        type: DataTypes.DATEONLY,
-        allowNull: false,
-        validate: {
-          isAfter: "1921-01-01",
-        },
-      },
+      // DOB: {
+      //   type: DataTypes.DATEONLY,
+      //   allowNull: false,
+      //   validate: {
+      //     isAfter: "1921-01-01",
+      //   },
+      // },
       avatar: {
         type: DataTypes.TEXT,
       },
