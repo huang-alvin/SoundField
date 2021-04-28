@@ -16,9 +16,11 @@ module.exports = {
       let ageList = [18, 21];
       let capacityList = [100, 500, 1000, 5000, 10000];
       let id = Math.ceil(Math.random() * 25);
+      let categoryId = Math.ceil(Math.random() * 8);
 
       let event = {
         userId: id,
+        categoryId,
         title: faker.lorem.words(),
         description: faker.lorem.paragraph(),
         start_date: new Date(year, month, day, startHour),

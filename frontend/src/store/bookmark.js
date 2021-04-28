@@ -47,7 +47,6 @@ export const deleteOneBookmark = (bookmarkObj) => async (dispatch) => {
 
 const initialState = {};
 const bookmarksReducer = (state = initialState, action) => {
-  //   let newState = {};
   switch (action.type) {
     case ADD: {
       return {

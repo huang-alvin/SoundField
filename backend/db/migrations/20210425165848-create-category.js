@@ -12,14 +12,14 @@ module.exports = {
         type: Sequelize.STRING(50),
         allowNull: false,
       },
-      eventId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Events",
-          key: "id",
-        },
-      },
+      // eventId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: "Events",
+      //     key: "id",
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

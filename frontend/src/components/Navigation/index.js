@@ -8,7 +8,7 @@ export default function Navigation({ isLoaded }) {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <span>
+      <span className="user-nav">
         <span>Welcome {sessionUser.username}</span>
         <ProfileButton user={sessionUser} />
       </span>
@@ -31,7 +31,7 @@ export default function Navigation({ isLoaded }) {
           Home
         </NavLink>
       </span>
-      <span className="nav-header__group">{isLoaded && sessionLinks}</span>
+      <span className="nav-header__group ">{isLoaded && sessionLinks}</span>
     </div>
   );
 }

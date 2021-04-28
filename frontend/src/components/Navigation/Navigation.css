@@ -12,3 +12,8 @@
   background-color: rgb(240, 178, 178);
   font-size: 20px;
 }
+.user-nav {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}

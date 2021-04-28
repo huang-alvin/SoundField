@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   Event.associate = function (models) {
     Event.hasMany(models.Ticket, { foreignKey: "eventId" });
     Event.belongsTo(models.User, { foreignKey: "userId" });
-    Event.belongsTo(models.Category, { foreignKey: "eventId" });
+    Event.belongsTo(models.Category, { foreignKey: "categoryId" });
     Event.hasMany(models.Bookmark, { foreignKey: "eventId" });
   };
   return Event;

@@ -7,18 +7,21 @@ import "./BookmarkPage.css";
 
 function BookmarkPage() {
   const dispatch = useDispatch();
-  const [userBookmarks, setUserBookmarks] = useState([]);
+  // const [userBookmarks, setUserBookmarks] = useState([]);
   const sessionUser = useSelector((state) => state.session.user);
+  // const eventList = useSelector((state) => state.events);
 
   useEffect(() => {
     dispatch(loadBookmarks(sessionUser.id));
   }, [dispatch]);
   const bookmarkList = useSelector((state) => state.bookmarks);
+  // useEffect(() => {
+  //   setUserBookmarks(Object.values(bookmarkList));
+  // }, [dispatch]);
 
   const handleDelete = (e, bookmarkId) => {
     e.preventDefault();
     dispatch(deleteOneBookmark(bookmarkId));
-    setUserBookmarks(...bookmarkList);
   };
 
   if (!sessionUser) {
@@ -31,18 +34,20 @@ function BookmarkPage() {
     }
     return true;
   }
-
+  let bookmarkArr = Object.values(bookmarkList);
   let bookmarks;
-  if (isEmpty(userBookmarks)) {
-    bookmarks = <div className="empty-bookmark"></div>;
+  if (isEmpty(bookmarkList)) {
+    bookmarks = <div className="empty-bookmark">Hi</div>;
   } else {
     bookmarks = [];
-    for (const bookmark in userBookmarks) {
+    for (const index in bookmarkArr) {
+      let bookmark = bookmarkArr[index];
       let bookmarkTile = (
-        <div className="bookmarkTile" key={bookmark.id}>
+        <div className="bookmark-tile" key={bookmark.id}>
           <BookmarkCard bookmark={bookmark} />
+
           <button
-            onClick={(e) => handleDelete(e, bookmark.id)}
+            onClick={(e) => handleDelete(e, bookmark)}
             className="delete-btn"
           >
             Delete
@@ -53,17 +58,6 @@ function BookmarkPage() {
     }
   }
 
-  return (
-    <div className="bookmark-container">
-      {bookmarks}
-      <div>Hi</div>
-    </div>
-  );
+  return <div className="bookmark-container">{bookmarks}</div>;
 }
 export default BookmarkPage;
-
-/*
-1. when the user is signed in and goes to bookmarks
-    initial render grab all bookmarks under user and display (useEffect)
-
-*/

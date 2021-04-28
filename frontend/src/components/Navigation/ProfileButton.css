@@ -1,0 +1,8 @@
+.fa-user {
+  position: relative;
+}
+.profile-dropdown {
+  position: absolute;
+  right: 8%;
+  top: 5%;
+}

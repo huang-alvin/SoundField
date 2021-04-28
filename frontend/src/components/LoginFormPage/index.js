@@ -14,7 +14,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) {
-    return <Redirect to="/" />;
+    return <Redirect to="/home" />;
   }
 
   const handleSubmit = (e) => {

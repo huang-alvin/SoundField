@@ -11,7 +11,6 @@ router.get(
       where: { userId },
       order: [["id", "ASC"]],
     });
-    console.log("hit bookmarks route ");
     return res.json(userBookmarks);
   })
 );

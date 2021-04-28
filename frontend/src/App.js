@@ -5,6 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import BookmarkPage from "./components/BookmarkPage";
+import HomePage from "./components/HomePage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/bookmark">
             <BookmarkPage />
+          </Route>
+          <Route path="/home">
+            <HomePage />
           </Route>
         </Switch>
       )}

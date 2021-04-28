@@ -1,0 +1,17 @@
+.bookmark-tile {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  box-sizing: content-box;
+  margin: 10px;
+}
+.delete-btn {
+  grid-area: button;
+  display: flex;
+  max-height: 20px;
+  flex-flow: column;
+  justify-content: center;
+}
+.bookmark-tile {
+  grid-area: bookmark;
+}

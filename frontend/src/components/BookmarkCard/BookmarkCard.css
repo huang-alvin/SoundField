@@ -1,0 +1,23 @@
+.bookmark-card {
+  display: grid;
+  grid-template-areas: "info image";
+  grid-template-columns: 70% 30%;
+  width: 700px;
+  height: 200px;
+  /* margin: 20px; */
+  box-sizing: content-box;
+}
+
+.bookmkark-card__image-container {
+  grid-area: image;
+  height: 200px;
+}
+
+.bookmark-card__detail-container {
+  grid-area: info;
+  height: 200px;
+}
+.image {
+  max-height: 200px;
+  max-width: 200px;
+}
