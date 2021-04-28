@@ -1,6 +1,5 @@
+import { useSelector } from "react-redux";
 import "./BookmarkCard.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
 
 // use the eventId from bookmark object
 // find the event obj

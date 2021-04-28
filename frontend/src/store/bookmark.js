@@ -30,9 +30,9 @@ export const addOneBookmark = (userId, eventId) => async (dispatch) => {
     method: "POST",
     body: JSON.stringify({ eventId }),
   });
-  const result = await res.json();
-  dispatch(addBookmark(eventId));
-  return result;
+  const bookmark = await res.json();
+  dispatch(addBookmark(bookmark));
+  return bookmark;
 };
 export const deleteOneBookmark = (bookmarkObj) => async (dispatch) => {
   // const {userId, eventId} = bookmarkObj;

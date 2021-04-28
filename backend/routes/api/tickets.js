@@ -1,17 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-import { Ticket } from "../../db/models";
+const { Ticket } = require("../../db/models");
 
 router.get(
-  "/",
+  "/:userId(\\d+)",
   asyncHandler(async (req, res) => {
-    const { userId } = req.body;
+    const { userId } = req.params;
     const userTickets = await Ticket.findAll({
       where: { userId },
       order: [["id", "ASC"]],
     });
-    res.json({ userTickets });
+
+    return res.json(userTickets);
+  })
+);
+
+router.post(
+  "/:userId(\\d+)",
+  asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const { eventId } = req.body;
+    const ticket = await Bookmark.create({ userId, eventId });
+    return res.json({ success: "success" });
   })
 );
 

@@ -7,12 +7,14 @@ const sessionRouter = require("./session");
 const usersRouter = require("./users");
 const bookmarksRouter = require("./bookmarks");
 const eventsRouter = require("./events");
+const ticketsRouter = require("./tickets");
 const router = require("express").Router();
 
 router.use("/session", sessionRouter);
 router.use("/users", usersRouter);
 router.use("/bookmarks", bookmarksRouter);
 router.use("/events", eventsRouter);
+router.use("/tickets", ticketsRouter);
 
 //----------------  TESTING AUTH MIDDLEWARE -----------------
 // router.get(

@@ -6,6 +6,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
 import BookmarkPage from "./components/BookmarkPage";
 import HomePage from "./components/HomePage";
+import TicketPage from "./components/TicketPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/home">
             <HomePage />
+          </Route>
+          <Route path="/ticket">
+            <TicketPage />
           </Route>
         </Switch>
       )}

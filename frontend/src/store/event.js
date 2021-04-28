@@ -26,7 +26,6 @@ const deleteEvent = (eventId) => ({
 });
 
 export const loadAllEvents = () => async (dispatch) => {
-  console.log("event store");
   const res = await csrfFetch(`/api/events/`);
   const eventList = await res.json();
   dispatch(loadAll(eventList));

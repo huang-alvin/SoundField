@@ -45,6 +45,9 @@ function ProfileButton({ user }) {
             <NavLink to="/bookmark">My Bookmarks</NavLink>
           </li>
           <li>
+            <NavLink to="/ticket">My Tickets</NavLink>
+          </li>
+          <li>
             <button onClick={logout}>Log Out</button>
           </li>
         </ul>

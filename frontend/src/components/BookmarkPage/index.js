@@ -5,19 +5,17 @@ import BookmarkCard from "../BookmarkCard";
 import { loadBookmarks, deleteOneBookmark } from "../../store/bookmark";
 import "./BookmarkPage.css";
 
+// useHistory to redirect user to event when click on bookmark card
+// add event listener and a callback function
+
 function BookmarkPage() {
   const dispatch = useDispatch();
-  // const [userBookmarks, setUserBookmarks] = useState([]);
   const sessionUser = useSelector((state) => state.session.user);
-  // const eventList = useSelector((state) => state.events);
 
   useEffect(() => {
     dispatch(loadBookmarks(sessionUser.id));
   }, [dispatch]);
   const bookmarkList = useSelector((state) => state.bookmarks);
-  // useEffect(() => {
-  //   setUserBookmarks(Object.values(bookmarkList));
-  // }, [dispatch]);
 
   const handleDelete = (e, bookmarkId) => {
     e.preventDefault();
