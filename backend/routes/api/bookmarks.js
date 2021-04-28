@@ -1,24 +1,26 @@
 const express = require("express");
 const router = express.Router();
 const asyncHandler = require("express-async-handler");
-import { Bookmark } from "../../db/models";
+const { Bookmark } = require("../../db/models");
 
 router.get(
-  "/",
+  "/:userId(\\d+)",
   asyncHandler(async (req, res) => {
-    const { userId } = req.body;
+    const { userId } = req.params;
     const userBookmarks = await Bookmark.findAll({
       where: { userId },
       order: [["id", "ASC"]],
     });
-    return res.json({ userBookmarks });
+    console.log("hit bookmarks route ");
+    return res.json(userBookmarks);
   })
 );
 
 router.post(
-  "/",
+  "/:userId(\\d+)",
   asyncHandler(async (req, res) => {
-    const { userId, eventId } = req.body;
+    const { userId } = req.params;
+    const { eventId } = req.body;
     const bookmark = await Bookmark.create({ userId, eventId });
     return res.json({ success: "success" });
   })

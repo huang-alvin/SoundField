@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import Navigation from "./components/Navigation";
+import BookmarkPage from "./components/BookmarkPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/bookmark">
+            <BookmarkPage />
           </Route>
         </Switch>
       )}

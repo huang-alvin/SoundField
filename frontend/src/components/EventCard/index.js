@@ -3,7 +3,7 @@ import "./EventCard.css";
 
 export default function EventCard({ event }) {
   return (
-    <div className="event-card">
+    <div className="event-card" key={event.id}>
       <div className="event-card__image-container">
         <img src=""></img>
       </div>
