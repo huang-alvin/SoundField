@@ -22,7 +22,6 @@ const deleteTicket = (ticketId) => ({
 export const loadTickets = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/tickets/${userId}`);
   const ticketList = await res.json();
-  console.log(ticketList, "store");
   dispatch(load(ticketList));
   return ticketList;
 };

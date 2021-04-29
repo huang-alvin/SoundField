@@ -35,7 +35,7 @@ function BookmarkPage() {
   let bookmarkArr = Object.values(bookmarkList);
   let bookmarks;
   if (isEmpty(bookmarkList)) {
-    bookmarks = <div className="empty-bookmark">Hi</div>;
+    bookmarks = <div className="empty-bookmark">Empty Bookmarks</div>;
   } else {
     bookmarks = [];
     for (const index in bookmarkArr) {
