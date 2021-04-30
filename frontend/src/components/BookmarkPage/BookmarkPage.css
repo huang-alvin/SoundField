@@ -12,6 +12,3 @@
   flex-flow: column;
   justify-content: center;
 }
-.bookmark-tile {
-  grid-area: bookmark;
-}

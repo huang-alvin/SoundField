@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./BookmarkCard.css";
 
 // use the eventId from bookmark object
@@ -9,16 +10,22 @@ function BookmarkCard({ bookmark }) {
   let eventObj = eventList[eventId];
 
   return (
-    <div className="bookmark-card">
-      <div className="bookmark-card__image-container">
-        <img src={eventObj.image} alt="bookmark" className="image"></img>
+    <Link to={`/events/${eventId}`}>
+      <div className="bookmark-card">
+        <div className="bookmark-card__image-container">
+          <img
+            src={eventObj.image}
+            alt="bookmark"
+            className="bookmark-image"
+          ></img>
+        </div>
+        <div className="bookmark-card__detail-container">
+          <div className="title">{eventObj.title}</div>
+          <div className="date">{eventObj.start_date}</div>
+          <div className="location">{eventObj.location}</div>
+        </div>
       </div>
-      <div className="bookmark-card__detail-container">
-        <div className="title">{eventObj.title}</div>
-        <div className="date">{eventObj.start_date}</div>
-        <div className="location">{eventObj.location}</div>
-      </div>
-    </div>
+    </Link>
   );
 }
 export default BookmarkCard;

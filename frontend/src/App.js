@@ -7,6 +7,7 @@ import Navigation from "./components/Navigation";
 import BookmarkPage from "./components/BookmarkPage";
 import HomePage from "./components/HomePage";
 import TicketPage from "./components/TicketPage";
+import EventPage from "./components/EventPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -27,14 +28,20 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/bookmark">
+          <Route path="/user/bookmarks/:userId">
             <BookmarkPage />
+          </Route>
+          <Route path="/user/tickets/:userId">
+            <TicketPage />
+          </Route>
+          {/* <Route path="/user/events/:userId">
+            <userEventPage />
+          </Route> */}
+          <Route path="/events/:eventId">
+            <EventPage />
           </Route>
           <Route path="/home">
             <HomePage />
-          </Route>
-          <Route path="/ticket">
-            <TicketPage />
           </Route>
         </Switch>
       )}

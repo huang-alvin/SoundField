@@ -5,4 +5,6 @@
   position: absolute;
   right: 8%;
   top: 5%;
+  z-index: 999;
+  background-color: #e7dac8;
 }

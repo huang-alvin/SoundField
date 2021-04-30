@@ -1,0 +1,22 @@
+.ticket-card {
+  display: grid;
+  grid-template-areas: "info image";
+  grid-template-columns: 70% 30%;
+  width: 700px;
+  height: 150px;
+
+  box-sizing: content-box;
+}
+.ticket-card__image-container {
+  grid-area: image;
+  height: 150px;
+}
+
+.ticket-card__detail-container {
+  grid-area: info;
+  height: 150px;
+}
+.ticket-image {
+  max-height: 150px;
+  max-width: 200px;
+}

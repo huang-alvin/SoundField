@@ -6,7 +6,7 @@ function HomePage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   useEffect(() => {
-    dispatch(loadAllEvents());
+    dispatch(loadAllEvents(sessionUser.id));
     dispatch(loadTickets(sessionUser.id));
   }, [dispatch]);
   return <div>home</div>;

@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import "./ProfileButton.css";
 import * as sessionActions from "../../store/session";
 
 function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
-
+  const sessionUser = useSelector((state) => state.session.user);
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -39,17 +39,20 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
-          <li>
-            <NavLink to="/bookmark">My Bookmarks</NavLink>
-          </li>
-          <li>
-            <NavLink to="/ticket">My Tickets</NavLink>
-          </li>
-          <li>
+          <div>{user.username}</div>
+          <div>{user.email}</div>
+          <div>
+            <Link to={`/user/bookmarks/${sessionUser.id}`}>My Bookmarks</Link>
+          </div>
+          <div>
+            <Link to={`/user/tickets/${sessionUser.id}`}>My Tickets</Link>
+          </div>
+          <div>
+            <Link to={`/user/events/${sessionUser.id}`}>My Events</Link>
+          </div>
+          <div>
             <button onClick={logout}>Log Out</button>
-          </li>
+          </div>
         </ul>
       )}
     </>

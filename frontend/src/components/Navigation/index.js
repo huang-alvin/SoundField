@@ -23,7 +23,7 @@ export default function Navigation({ isLoaded }) {
   }
   return (
     <div className="navbar-container">
-      <span className="nav-header__group">
+      <span className="nav-header__group logo">
         <NavLink to="/">SoundField</NavLink>
       </span>
       <span className="nav-header__group">

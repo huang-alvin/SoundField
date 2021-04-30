@@ -1,0 +1,19 @@
+.ticket-tile {
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  box-sizing: content-box;
+  margin: 10px;
+}
+.tab-header {
+  margin: 10px;
+  display: flex;
+}
+.ticket-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabs {
+  margin: 10px;
+}
