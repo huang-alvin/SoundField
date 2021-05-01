@@ -74,12 +74,14 @@ function UserEventPage() {
       let ticketTile = (
         <div className="ticket-tile" key={event.id}>
           <TicketCard ticket={event} key={event.id} />
-          <button
-            onClick={(e) => handleDelete(e, event.id)}
-            className="delete-btn"
-          >
-            Delete
-          </button>
+          <div className="delete-button-container">
+            <button
+              onClick={(e) => handleDelete(e, event.id)}
+              className="delete-btn"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       );
       tickets.push(ticketTile);

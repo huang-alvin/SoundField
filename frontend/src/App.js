@@ -9,6 +9,7 @@ import HomePage from "./components/HomePage";
 import TicketPage from "./components/TicketPage";
 import EventPage from "./components/EventPage";
 import UserEventPage from "./components/UserEventPage";
+import LandingPage from "./components/LandingPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/events/:eventId">
             <EventPage />
+          </Route>
+          <Route path exact="/">
+            <LandingPage />
           </Route>
           {/* <Route path="/events/:eventId">
             <EventPage />

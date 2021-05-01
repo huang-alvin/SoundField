@@ -1,0 +1,18 @@
+.landing-image-container {
+  overflow: hidden;
+  grid-area: content;
+  position: relative;
+}
+.landing-image {
+  width: 100%;
+  z-index: 1;
+}
+.motto {
+  position: absolute;
+  background-color: transparent;
+  z-index: 2;
+  font-size: larger;
+  color: #fea82f;
+  top: 42%;
+  left: 41%;
+}
