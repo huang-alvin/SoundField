@@ -43,3 +43,10 @@
   display: flex;
   justify-content: space-around;
 }
+.footer {
+  grid-area: footer;
+  background-color: #fea82f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -10,6 +10,7 @@
 .ticket-card__image-container {
   grid-area: image;
   height: 150px;
+  object-fit: cover;
 }
 
 .ticket-card__detail-container {
@@ -17,6 +18,5 @@
   height: 150px;
 }
 .ticket-image {
-  max-height: 150px;
-  max-width: 200px;
+  width: 100%;
 }

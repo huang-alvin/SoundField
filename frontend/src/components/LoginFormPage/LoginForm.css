@@ -9,9 +9,34 @@
 .login-form-container {
   display: flex;
   border: 1px solid rgba(160, 148, 41, 0.973);
-  height: 300px;
-  width: 300px;
+  background-color: #fea82f;
+
+  height: 400px;
+  width: 400px;
   border-radius: 10px;
+  /* justify-content: center;
+  align-items: center; */
+}
+.login-form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.credential,
+.password {
+  margin-left: 10px;
+}
+.login-header {
+  font-size: larger;
+}
+.login-button {
+  height: 30px;
+  padding: 10px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }

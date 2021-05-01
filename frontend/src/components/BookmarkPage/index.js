@@ -43,13 +43,14 @@ function BookmarkPage() {
       let bookmarkTile = (
         <div className="bookmark-tile" key={bookmark.id}>
           <BookmarkCard bookmark={bookmark} />
-
-          <button
-            onClick={(e) => handleDelete(e, bookmark)}
-            className="delete-btn"
-          >
-            Delete
-          </button>
+          <div className="bookmark-delete-container">
+            <button
+              onClick={(e) => handleDelete(e, bookmark)}
+              className="delete-btn"
+            >
+              Delete
+            </button>
+          </div>
         </div>
       );
       bookmarks.push(bookmarkTile);

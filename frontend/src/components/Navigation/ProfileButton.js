@@ -51,7 +51,9 @@ function ProfileButton({ user }) {
             <Link to={`/user/events/${sessionUser.id}`}>My Events</Link>
           </div>
           <div>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout} className="logout-button">
+              Log Out
+            </button>
           </div>
         </ul>
       )}

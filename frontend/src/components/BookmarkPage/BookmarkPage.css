@@ -7,10 +7,8 @@
 }
 .delete-btn {
   grid-area: button;
-  display: flex;
-  max-height: 20px;
-  flex-flow: column;
-  justify-content: center;
+
+  height: 30px;
 }
 .bookmark-container {
   overflow: auto;
@@ -24,4 +22,11 @@
 }
 .bookmark-card {
   border: rgba(181, 190, 98, 0.651) solid 1px;
+}
+/* .bookmark-card :hover {
+  box-shadow: 1px 5px 5px rgba(97, 69, 69, 0.534);
+} */
+.bookmark-delete-container {
+  display: flex;
+  align-items: center;
 }

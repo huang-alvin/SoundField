@@ -4,13 +4,12 @@
   grid-template-columns: 70% 30%;
   width: 700px;
   height: 200px;
-  /* margin: 20px; */
   box-sizing: content-box;
 }
 
 .bookmark-card__image-container {
   grid-area: image;
-  height: 197px;
+  height: 200px;
   object-fit: cover;
   overflow: hidden;
 }
@@ -24,8 +23,6 @@
   align-items: center;
 }
 .bookmark-image {
-  /* max-height: 200px;
-  max-width: 200px; */
   height: 100%;
 }
 .title,
@@ -39,3 +36,6 @@
 .bookmark-card :hover {
   box-shadow: 1px 5px 5px rgba(97, 69, 69, 0.534);
 }
+/* a :hover {
+  box-shadow: 1px 5px 5px rgba(97, 69, 69, 0.534);
+} */
