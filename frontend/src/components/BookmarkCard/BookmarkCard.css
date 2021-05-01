@@ -10,14 +10,32 @@
 
 .bookmark-card__image-container {
   grid-area: image;
-  height: 200px;
+  height: 197px;
+  object-fit: cover;
+  overflow: hidden;
 }
 
 .bookmark-card__detail-container {
   grid-area: info;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .bookmark-image {
-  max-height: 200px;
-  max-width: 200px;
+  /* max-height: 200px;
+  max-width: 200px; */
+  height: 100%;
+}
+.title,
+.date,
+.location {
+  margin: 5px;
+}
+.title {
+  font-size: large;
+}
+.bookmark-card :hover {
+  box-shadow: 1px 5px 5px rgba(97, 69, 69, 0.534);
 }

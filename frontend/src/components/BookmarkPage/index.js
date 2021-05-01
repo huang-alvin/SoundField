@@ -56,6 +56,11 @@ function BookmarkPage() {
     }
   }
 
-  return <div className="bookmark-container">{bookmarks}</div>;
+  return (
+    <div className="bookmark-container">
+      <div className="bookmark-header">Your Bookmarks</div>
+      {bookmarks}
+    </div>
+  );
 }
 export default BookmarkPage;

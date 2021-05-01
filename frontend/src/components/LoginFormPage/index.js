@@ -17,6 +17,9 @@ function LoginFormPage() {
     return <Redirect to="/home" />;
   }
 
+  const demoLogin = (e) => {
+    e.preventDefault();
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,32 +38,47 @@ function LoginFormPage() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => (
-          <li key={idx}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username or Email
-        <input
-          type="text"
-          value={credential}
-          onChange={(e) => setCredential(e.target.value)}
-          required
-        />
-      </label>
-      <label>
-        Password
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </label>
-      <button type="submit">Log In</button>
-    </form>
+    <div className="login-container">
+      <div className="login-form-container">
+        <form onSubmit={handleSubmit} className="login-form">
+          <ul>
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <div className="credential-container">
+            <label>
+              Username or Email
+              <input
+                type="text"
+                value={credential}
+                onChange={(e) => setCredential(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div className="password-container">
+            <label>
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+          </div>
+          <div className="login-button-container">
+            <button type="submit">Log In</button>
+          </div>
+          <div className="demo-login-container">
+            <button type="button" onClick={demoLogin}>
+              Demo Login
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 export default LoginFormPage;

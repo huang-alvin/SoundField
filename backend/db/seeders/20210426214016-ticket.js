@@ -7,11 +7,15 @@ module.exports = {
         userId: 1,
         eventId: 1,
       },
+      {
+        userId: 1,
+        eventId: 10,
+      },
     ];
     for (let i = 0; i <= 25; i++) {
       let ticket = {
-        userId: Math.ceil(Math.random() * 25),
-        eventId: Math.ceil(Math.random() * 25),
+        userId: Math.ceil(Math.random() * 20),
+        eventId: Math.ceil(Math.random() * 20),
       };
       ticketArr.push(ticket);
     }

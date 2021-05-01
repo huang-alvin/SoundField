@@ -21,8 +21,8 @@ router.post(
   asyncHandler(async (req, res) => {
     const { userId } = req.params;
     const { eventId } = req.body;
-    const ticket = await Bookmark.create({ userId, eventId });
-    return res.json({ success: "success" });
+    const ticket = await Ticket.create({ userId, eventId });
+    return res.json(ticket);
   })
 );
 

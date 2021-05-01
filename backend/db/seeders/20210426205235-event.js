@@ -5,7 +5,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     let eventArr = [];
 
-    for (let i = 0; i <= 26; i++) {
+    for (let i = 0; i <= 22; i++) {
       let year = 2021;
       let month = Math.floor(Math.random() * 12);
       let day = Math.floor(Math.random() * 26);
@@ -15,7 +15,7 @@ module.exports = {
       let priceList = [15, 20, 25, 50];
       let ageList = [18, 21];
       let capacityList = [100, 500, 1000, 5000, 10000];
-      let id = Math.ceil(Math.random() * 25);
+      let id = Math.ceil(Math.random() * 10);
       let categoryId = Math.ceil(Math.random() * 8);
 
       let event = {

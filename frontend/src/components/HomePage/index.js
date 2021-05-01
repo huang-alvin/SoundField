@@ -6,10 +6,12 @@ import { loadBookmarks } from "../../store/bookmark";
 function HomePage() {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
-  useEffect(() => {
-    dispatch(loadAllEvents(sessionUser.id));
-    dispatch(loadTickets(sessionUser.id));
-    dispatch(loadBookmarks(sessionUser.id));
+  useEffect(async () => {
+    if (sessionUser) {
+      await dispatch(loadAllEvents(sessionUser.id));
+      await dispatch(loadTickets(sessionUser.id));
+      await dispatch(loadBookmarks(sessionUser.id));
+    }
   }, [dispatch]);
   return <div>home</div>;
 }

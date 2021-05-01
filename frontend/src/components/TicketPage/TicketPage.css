@@ -15,5 +15,20 @@
   align-items: center;
 }
 .tabs {
-  margin: 10px;
+  padding: 10px;
+  border: 1px black solid;
+}
+
+.tickets-header {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+.active {
+  color: purple;
+}
+.ticket-container {
+  overflow: auto;
+  margin-top: 20px;
 }

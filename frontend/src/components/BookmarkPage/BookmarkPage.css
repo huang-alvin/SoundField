@@ -12,3 +12,16 @@
   flex-flow: column;
   justify-content: center;
 }
+.bookmark-container {
+  overflow: auto;
+  margin-top: 20px;
+}
+.bookmark-header {
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  margin-bottom: 20px;
+}
+.bookmark-card {
+  border: rgba(181, 190, 98, 0.651) solid 1px;
+}

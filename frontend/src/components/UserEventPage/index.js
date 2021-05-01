@@ -1,31 +1,39 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { loadTickets } from "../../store/ticket";
 import TicketCard from "../TicketCard";
-import "./TicketPage.css";
+import { deleteOneEvent } from "../../store/event";
+import "./UserEventPage.css";
 
-function TicketPage() {
+function UserEventPage() {
   const [currentTab, setCurrentTab] = useState(0);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const sessionUser = useSelector((state) => state.session.user);
-  const eventList = useSelector((state) => state.events);
+  const userEventList = useSelector((state) =>
+    Object.values(state.events.userEvents)
+  );
   let history = useHistory();
 
   if (!sessionUser) {
     history.push("/home");
   }
+  const handleDelete = (e, eventId) => {
+    e.preventDefault();
+    dispatch(deleteOneEvent(eventId));
+  };
+  const handleAdd = (e) => {
+    e.preventDefault();
+    history.push("/");
+  };
 
-  let ticketList = useSelector((state) => Object.values(state.tickets));
-  let eventIdList = ticketList.map((ticket) => ticket.eventId);
-  let userEventList = eventIdList.map((eventId) => eventList[eventId]);
+  // let ticketList = useSelector((state) => Object.values(state.tickets));
+  // let eventIdList = ticketList.map((ticket) => ticket.eventId);
+  // let userEventList = eventIdList.map((eventId) => eventList[eventId]);
 
   let folders = [{ title: "Upcoming" }, { title: "Past Events" }];
   let activeTickets = [];
   let expiredTickets = [];
-  console.log(expiredTickets);
-  console.log(folders);
 
   const sortTickets = () => {
     const today = new Date();
@@ -66,20 +74,26 @@ function TicketPage() {
       let ticketTile = (
         <div className="ticket-tile" key={event.id}>
           <TicketCard ticket={event} key={event.id} />
+          <button
+            onClick={(e) => handleDelete(e, event.id)}
+            className="delete-btn"
+          >
+            Delete
+          </button>
         </div>
       );
       tickets.push(ticketTile);
     });
   } else {
-    tickets = <div>No Tickets </div>;
+    tickets = <div>Nothing to see here :)</div>;
   }
 
   return (
     <div className="ticket-container">
-      <div className="tickets-header">Your Tickets</div>
+      <div className="events-header">Your Events</div>
       <Headers />
-      <div className="ticket-card-container">{tickets}</div>
+      <div ticket-card-container>{tickets}</div>
     </div>
   );
 }
-export default TicketPage;
+export default UserEventPage;

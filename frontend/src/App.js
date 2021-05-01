@@ -8,6 +8,7 @@ import BookmarkPage from "./components/BookmarkPage";
 import HomePage from "./components/HomePage";
 import TicketPage from "./components/TicketPage";
 import EventPage from "./components/EventPage";
+import UserEventPage from "./components/UserEventPage";
 import * as sessionActions from "./store/session";
 
 function App() {
@@ -34,12 +35,15 @@ function App() {
           <Route path="/user/tickets/:userId">
             <TicketPage />
           </Route>
-          {/* <Route path="/user/events/:userId">
-            <userEventPage />
-          </Route> */}
+          <Route path="/user/events/:userId">
+            <UserEventPage />
+          </Route>
           <Route path="/events/:eventId">
             <EventPage />
           </Route>
+          {/* <Route path="/events/:eventId">
+            <EventPage />
+          </Route> */}
           <Route path="/home">
             <HomePage />
           </Route>

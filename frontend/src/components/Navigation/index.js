@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 
@@ -16,20 +16,20 @@ export default function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <div className="dropdown">
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <Link to="/login">Log In</Link>
+        <Link to="/signup">Sign Up</Link>
       </div>
     );
   }
   return (
     <div className="navbar-container">
       <span className="nav-header__group logo">
-        <NavLink to="/">SoundField</NavLink>
+        <Link to="/">SoundField</Link>
       </span>
       <span className="nav-header__group">
-        <NavLink exact to="/home">
+        <Link exact to="/home">
           Home
-        </NavLink>
+        </Link>
       </span>
       <span className="nav-header__group ">{isLoaded && sessionLinks}</span>
     </div>

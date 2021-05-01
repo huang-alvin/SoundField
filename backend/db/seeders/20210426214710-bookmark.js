@@ -10,8 +10,8 @@ module.exports = {
     ];
     for (let i = 0; i <= 25; i++) {
       let bookmark = {
-        userId: Math.ceil(Math.random() * 25),
-        eventId: Math.ceil(Math.random() * 25),
+        userId: Math.ceil(Math.random() * 20),
+        eventId: Math.ceil(Math.random() * 20),
       };
       bookmarkArr.push(bookmark);
     }

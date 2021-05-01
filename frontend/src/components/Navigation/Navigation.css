@@ -33,3 +33,13 @@
 .logo {
   width: 250px;
 }
+.nav-header__group {
+  width: 250px;
+  display: flex;
+  justify-content: center;
+}
+.dropdown {
+  width: 250px;
+  display: flex;
+  justify-content: space-around;
+}

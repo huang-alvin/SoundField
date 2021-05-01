@@ -63,16 +63,17 @@ function EventPage() {
     );
   }
 
-  let editButton;
-  if (event.userId === userId) {
-    editButton = (
-      <button type="button" className="edit-button" onClick={handleEdit}>
-        Edit
-      </button>
-    );
-  } else {
-    editButton = <div />;
-  }
+  // let editButton;
+  // console.log(eventId, "eventpage");
+  // if (event.userId === userId) {
+  //   editButton = (
+  //     <button type="button" className="edit-button" onClick={handleEdit}>
+  //       Edit
+  //     </button>
+  //   );
+  // } else {
+  //   editButton = <div />;
+  // }
 
   let buyButton;
   if (hasTicket) {
@@ -88,15 +89,12 @@ function EventPage() {
   return (
     <div className="events-container">
       <div className="background-image-container">
-        <img
-          src="https://www.macmillandictionary.com/external/slideshow/full/148259_full.jpg"
-          className="event-image"
-        />
+        <img src={event.image} className="event-image" />
       </div>
       <div className="event-info-container">
         <div className="button-container">
           {bookmarkButton}
-          {editButton}
+          {/* {editButton} */}
           {buyButton}
         </div>
         <div className="event-body">

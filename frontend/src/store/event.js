@@ -3,17 +3,12 @@ import { csrfFetch } from "./csrf";
 const LOAD_ALL = "event/LOAD-ALL";
 const DELETE = "event/DELETE";
 const ADD = "event/ADD";
-const LOAD = "event/LOAD";
+const UPDATE = "event/UPDATE";
 
-// in the load send back all events and also only user events
 const loadAll = (list) => ({
   type: LOAD_ALL,
   events: list,
 });
-// const load = (list) => ({
-//   type: LOAD,
-//   userEventList: list,
-// });
 
 const addEvent = (event) => ({
   type: ADD,
@@ -26,39 +21,46 @@ const deleteEvent = (eventId) => ({
   eventId,
 });
 
+// const updateEvent = (eventId) => ({
+//   type: UPDATE,
+//   eventId,
+// });
+
 export const loadAllEvents = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/events/${userId}`);
   const events = await res.json();
   dispatch(loadAll(events));
   return events;
 };
-// export const loadUserEvents = (userId) => async (dispatch) => {
-//   const res = await csrfFetch(`/api/events/${userId}`);
-//   const eventList = await res.json();
-//   dispatch(load(eventList));
-//   return eventList;
-// };
-export const addOneEvent = (userId, eventId) => async (dispatch) => {
+
+export const addOneEvent = (userId, payload) => async (dispatch) => {
   const res = await csrfFetch(`/api/events/${userId}`, {
     method: "POST",
-    body: JSON.stringify({ eventId }),
+    body: JSON.stringify({ payload }),
   });
-  const result = await res.json();
-  dispatch(addEvent(eventId));
-  return result;
+  const userEvent = await res.json();
+  dispatch(addEvent(userEvent));
+  return userEvent;
 };
 
+export const deleteOneEvent = (eventId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/events/${eventId}`, {
+    method: "DELETE",
+    body: JSON.stringify({ eventId }),
+  });
+  dispatch(deleteEvent(eventId));
+};
 const initialState = {
   userEvents: {},
 };
 const eventsReducer = (state = initialState, action) => {
   switch (action.type) {
-    // case ADD: {
-    //   return {
-    //     ...state,
-    //     [action.event.id]: action.event,
-    //   };
-    // }
+    case ADD: {
+      let newState = { ...state };
+      newState[action.event.id] = action.event;
+      newState.userEvents[action.event.id] = action.event;
+      return newState;
+    }
     case LOAD_ALL: {
       let newState = { ...state };
       action.events.eventsList.forEach((event) => {
@@ -70,9 +72,10 @@ const eventsReducer = (state = initialState, action) => {
       });
       return newState;
     }
-    // case DELETE: {
-    //   let newState = { ...state };
-    // }
+    case DELETE: {
+      let newState = { ...state };
+      delete newState.userEvents[action.eventId];
+    }
     default:
       return state;
   }
