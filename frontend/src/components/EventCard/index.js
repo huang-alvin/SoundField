@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import "./EventCard.css";
 
 export default function EventCard({ event }) {
-  console.log(DateTime.fromISO(event.start_date).toFormat("LLL dd"));
-
   return (
     <Link to={`/events/${event.id}`}>
       <div className="event-card" key={event.id}>

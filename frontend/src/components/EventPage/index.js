@@ -15,9 +15,21 @@ function EventPage() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  const sessionUser = useSelector((state) => state.session.user);
+
+  // if (!sessionUser) {
+  //   history.push("/login");
+  // }
+  let userId;
+  if (sessionUser) {
+    userId = sessionUser.id;
+  } else {
+    userId = 1;
+  }
+  // const userId = sessionUser.id;
+
   const event = useSelector((state) => state.events[parseInt(eventId, 10)]);
 
-  const userId = useSelector((state) => state.session.user.id);
   const userBookmarksArr = useSelector((state) =>
     Object.values(state.bookmarks)
   );
