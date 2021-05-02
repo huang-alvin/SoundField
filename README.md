@@ -2,7 +2,7 @@
 
 ![](https://i.gyazo.com/4b8c4427db4a39520c63245dc8342ede.jpg)
 ## Summary
-SoundField is a web app for finding the newest music events. It was inspired by Eventbrite and built using Express, React, and PostgreSQL.
+[SoundField](https://sound-field.herokuapp.com/) is a web app for finding the newest music events. It was inspired by Eventbrite and built using Express, React, and PostgreSQL.
 ## Technologies
 #### Back End
 SoundField's backend was created with Express. It also follows RESTful API convention. <br />
