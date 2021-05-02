@@ -1,0 +1,15 @@
+.category-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.category-button {
+  padding: 15px;
+  border-radius: 25px;
+  border: 1px solid black;
+  margin: 1px;
+}
+.category-button:hover {
+  box-shadow: 1px 2px 2px gray;
+  background-color: #fea82f;
+}

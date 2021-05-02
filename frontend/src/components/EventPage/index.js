@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import { DateTime } from "luxon";
 import { addOneBookmark } from "../../store/bookmark";
 import { addOneTicket } from "../../store/ticket";
 
@@ -103,8 +104,10 @@ function EventPage() {
         </div>
         <div className="event-details">
           <div className="event-date-container ">
-            <div className="event-date-header detail-header">Date and Time</div>
-            <div className="event-date">{event.start_date}</div>
+            <div className="event-date-header detail-header">Date</div>
+            <div className="event-date">
+              {DateTime.fromISO(event.start_date).toFormat("LLL dd")}
+            </div>
           </div>
           <div className="event-location-container">
             <div className="event-location-header detail-header">Location</div>

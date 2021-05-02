@@ -1,0 +1,31 @@
+.home-container {
+  grid-area: content;
+  display: grid;
+  grid-template-areas: "left header right" "left tags right" "left events right";
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 10% 20% 70%;
+}
+.tag-container {
+  grid-area: tags;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.event-container {
+  grid-area: events;
+  overflow-y: auto;
+}
+.home-header {
+  grid-area: header;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+.active-tag {
+  box-shadow: 1px 2px 2px gray;
+  background-color: #fea82f;
+}
+.event-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}

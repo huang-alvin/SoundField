@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { DateTime } from "luxon";
 import { Link } from "react-router-dom";
 
 import "./TicketCard.css";
@@ -17,7 +18,9 @@ function TicketCard({ ticket }) {
         </div>
         <div className="ticket-card__detail-container">
           <div className="title">{eventObj.title}</div>
-          <div className="date">{eventObj.start_date}</div>
+          <div className="date">
+            {DateTime.fromISO(eventObj.start_date).toFormat("LLL dd")}
+          </div>
           <div className="location">{eventObj.location}</div>
         </div>
       </div>

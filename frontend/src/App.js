@@ -42,7 +42,7 @@ function App() {
           <Route path="/events/:eventId">
             <EventPage />
           </Route>
-          <Route path exact="/">
+          <Route exact path="/">
             <LandingPage />
           </Route>
           {/* <Route path="/events/:eventId">

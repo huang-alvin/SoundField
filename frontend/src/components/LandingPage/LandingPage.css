@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Niconne&display=swap");
 .landing-image-container {
   overflow: hidden;
   grid-area: content;
@@ -11,8 +12,9 @@
   position: absolute;
   background-color: transparent;
   z-index: 2;
-  font-size: larger;
+  font-size: 70px;
   color: #fea82f;
-  top: 42%;
-  left: 41%;
+  top: 41%;
+  left: 24%;
+  font-family: "Niconne";
 }

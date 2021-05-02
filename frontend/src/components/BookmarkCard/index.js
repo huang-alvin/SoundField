@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { DateTime } from "luxon";
 import "./BookmarkCard.css";
 
 // use the eventId from bookmark object
@@ -21,7 +22,9 @@ function BookmarkCard({ bookmark }) {
         </div>
         <div className="bookmark-card__detail-container">
           <div className="title">{eventObj.title}</div>
-          <div className="date">{eventObj.start_date}</div>
+          <div className="date">
+            {DateTime.fromISO(eventObj.start_date).toFormat("LLL dd")}
+          </div>
           <div className="location">{eventObj.location}</div>
         </div>
       </div>
