@@ -20,6 +20,7 @@ function EventPage() {
   // if (!sessionUser) {
   //   history.push("/login");
   // }
+  // remove this below just a hot fix
   let userId;
   if (sessionUser) {
     userId = sessionUser.id;

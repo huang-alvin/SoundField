@@ -61,8 +61,6 @@ function TicketPage() {
   if (folders[currentTab].tickets.length) {
     tickets = [];
     folders[currentTab].tickets.forEach((event) => {
-      let currEvent = eventList[event.id];
-      console.log(currEvent);
       let ticketTile = (
         <div className="ticket-tile" key={event.id}>
           <TicketCard ticket={event} key={event.id} />

@@ -38,6 +38,7 @@ function BookmarkPage() {
     bookmarks = <div className="empty-bookmark">No Bookmarks</div>;
   } else {
     bookmarks = [];
+    console.log(bookmarkArr);
     for (const index in bookmarkArr) {
       let bookmark = bookmarkArr[index];
       let bookmarkTile = (

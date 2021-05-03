@@ -21,7 +21,7 @@ router.post(
     const { userId } = req.params;
     const { eventId } = req.body;
     const bookmark = await Bookmark.create({ userId, eventId });
-    return res.json({ success: "success" });
+    return res.json(bookmark);
   })
 );
 
